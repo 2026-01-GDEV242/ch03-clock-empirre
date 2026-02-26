@@ -22,6 +22,7 @@ public class ClockDisplay
     private NumberDisplay hours;
     private NumberDisplay minutes;
     private String displayString;    // simulates the actual display
+    private String meridian;
     
     /**
      * Constructor for ClockDisplay objects. This constructor 
@@ -78,12 +79,31 @@ public class ClockDisplay
         return displayString;
     }
     
+    
     /**
      * Update the internal string that represents the display.
      */
     private void updateDisplay()
     {
-        displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+   
+                        
+        int hourValue = hours.getValue();  
+        
+        if(hourValue < 12) 
+        {
+        meridian = "AM";
+        } else 
+        {
+        meridian = "PM";
+        }
+        
+        int displayHour = hourValue % 12;
+        if(displayHour == 0) 
+        {
+        displayHour = 12;
+        }
+        
+             displayString = displayHour + ":" + 
+                    minutes.getDisplayValue() + meridian;
     }
 }
