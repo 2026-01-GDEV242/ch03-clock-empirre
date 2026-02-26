@@ -3,9 +3,12 @@
  * 12 HOUR INTERNAL BRANCH
  * 
  * The ClockDisplay class implements a digital clock display for a
- * American-style 12 hour clock. The clock shows hours and minutes. The 
- * range of the clock is 00:00 (midnight) to 11:59 (one minute before 
+ * American-style 12 hour clock. The clock shows hours and minutes. 
+ * 
+ * The range of the clock is 00:00 (midnight) to 11:59 (one minute before 
  * midnight).
+ * In order to track AM or PM, we will need additional fields and logic to
+ * handle the switch in meridan.
  * 
  * The clock display receives "ticks" (via the timeTick method) every minute
  * and reacts by incrementing the display. This is done in the usual clock
